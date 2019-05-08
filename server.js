@@ -16,7 +16,7 @@ app.use(morgan("dev"));
 
 //connect to DB
 mongoose.connect(
-  "mongodb://dt031512:dt031512@ds153566.mlab.com:53566/music-app",
+  process.env.MongoDB_URI,
   {
     useNewUrlParser: true,
     useFindAndModify: false,
