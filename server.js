@@ -5,6 +5,8 @@ config();
 import morgan from "morgan";
 import mongoose from "mongoose";
 import expressJwt from "express-jwt";
+import albumRoutes from "./routes/albumRoutes";
+import trackRoutes from "./routes/trackRoutes";
 
 const port = process.env.PORT;
 
@@ -33,7 +35,10 @@ mongoose.connect(
 app.use("/auth", require("./routes/authRoutes"));
 //every /api route request jwt will verify token
 app.use("/api", expressJwt({ secret: process.env.SECRET }));
-//main resourse routes
+
+//resource routes
+app.use("/api/albums", albumRoutes);
+app.use("/api/tracks", trackRoutes);
 
 //global error handler
 app.use((err, req, res, next) => {
