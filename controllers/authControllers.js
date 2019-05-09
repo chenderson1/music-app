@@ -1,7 +1,7 @@
 import User from "../models/user";
 import jwt from "jsonwebtoken";
 
-const signup = async (req, res, next) => {
+export const signup = async (req, res, next) => {
   try {
     //check if user already exsist
     const user = await User.findOne({ username: req.body.username });
@@ -26,7 +26,7 @@ const signup = async (req, res, next) => {
   }
 };
 
-const login = async (req, res, next) => {
+export const login = async (req, res, next) => {
   try {
     //find user
     const user = await User.findOne({
@@ -57,9 +57,4 @@ const login = async (req, res, next) => {
     res.status(500);
     next(err);
   }
-};
-
-module.exports = {
-  signup,
-  login
 };
