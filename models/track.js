@@ -3,16 +3,15 @@ const Schema = mongoose.Schema;
 
 const trackSchema = new Schema({
   title: String,
-  releaseDate: String,
-  duration: String,
+  id: Number,
+  release_date: String,
+  duration: Number,
   artist: {
-    id: string,
-    name: string
+    id: Number,
+    name: String,
+    picture: String
   },
-  album: {
-    type: Schema.Types.ObjectId,
-    ref: "Album"
-  },
+  album: Object,
   user: {
     type: Schema.Types.ObjectId,
     ref: "User"
