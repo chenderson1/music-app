@@ -7,11 +7,22 @@ export const { Provider, Consumer } = React.createContext();
 export class UserDataProvider extends Component {
   state = {
     user: JSON.parse(localStorage.getItem("user")) || {},
-    token: localStorage.getItem("token") || ""
+    token: localStorage.getItem("token") || "",
+    signupForm: {
+      name: "",
+      username: "",
+      password: "",
+      email: ""
+    },
+    loginForm: {
+      username: "",
+      password: ""
+    }
   };
   //post new user and set userObj and token to local storage for user tracking even after page refresh
   //also set userObj and token to state
-  signup = async userInfo => {
+  signup = async (e, userInfo) => {
+    e.preventDefault();
     try {
       const res = await axios.post("/auth/signup", userInfo);
       const { user, token } = res.data;
@@ -23,7 +34,8 @@ export class UserDataProvider extends Component {
     }
   };
 
-  login = async credentials => {
+  login = async (e, credentials) => {
+    e.preventDefault();
     try {
       const res = await axios.post("/auth/login", credentials);
       const { token, user } = res.data;
@@ -50,6 +62,30 @@ export class UserDataProvider extends Component {
     }
   };
 
+  //==============signup form handlchange
+  handleSignUpChange = e => {
+    const { name, value } = e.target;
+    this.setState(prevState => {
+      return {
+        signupForm: {
+          ...prevState.signupForm,
+          [name]: value
+        }
+      };
+    });
+  };
+  handleLoginChange = e => {
+    const { name, value } = e.target;
+    this.setState(prevState => {
+      return {
+        loginForm: {
+          ...prevState.loginForm,
+          [name]: value
+        }
+      };
+    });
+  };
+
   render() {
     return (
       <Provider
@@ -57,7 +93,9 @@ export class UserDataProvider extends Component {
           ...this.state,
           signup: this.signup,
           login: this.login,
-          logout: this.logout
+          logout: this.logout,
+          handleSignUpChange: this.handleSignUpChange,
+          handleLoginChange: this.handleLoginChange
         }}
       >
         {this.props.children}

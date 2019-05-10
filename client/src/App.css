@@ -1,1 +1,27 @@
+*{
+    margin: 0;
+}
+.app{
+    height: 100vh;
+    border: solid black 1px;
 
+}
+.nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: solid black 1px;
+    height: 6vh;
+}
+.signup-form{
+
+    border: solid black 1px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+}
+.landing{
+    border: solid black 1px;
+    height: 100%;
+}
