@@ -30,7 +30,7 @@ export const postAlbum = async (req, res, next) => {
     //create new album from model
     const newAlbum = new Album(req.body);
     // add user objId to album
-    newAlbum.user = mongoose.Types.ObjectId(req.params._id);
+    newAlbum.user = mongoose.Types.ObjectId(req.user._id);
     //save new album to DB
     const album = await newAlbum.save(newAlbum);
     // user.findoneandupdate to  push album into favAlbums array of Related User

@@ -7,13 +7,14 @@ import {
   deleteTrack
 } from "../controllers/trackControllers";
 
+//get all User tracks
 trackRoutes
-  .route("/:_id")
+  .route("/")
   .get(getTracksByUserId)
   .post(postTrack);
-
+//get User track by Id
 trackRoutes
-  .route("/track/:_id")
+  .route("/:_id")
   .get(getTrackById)
   .delete(deleteTrack);
 

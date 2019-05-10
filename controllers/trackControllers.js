@@ -28,7 +28,7 @@ export const postTrack = async (req, res, next) => {
     //create new track from model
     const newTrack = new Track(req.body);
     // add user objId to track
-    newTrack.user = mongoose.Types.ObjectId(req.params._id);
+    newTrack.user = mongoose.Types.ObjectId(req.user._id);
     //save new track to DB
     const track = await newTrack.save(newTrack);
     // user.findoneandupdate to  push track into favtracks array of Related User

@@ -6,15 +6,14 @@ import {
   getAlbumById,
   deleteAlbum
 } from "../controllers/albumControllers";
-
-//by user id
+//get all User Albums
 albumRoutes
-  .route("/:_id")
+  .route("/")
   .get(getAlbumsByUserId)
   .post(postAlbum);
-
+//get User Album by Id
 albumRoutes
-  .route("/album/:_id")
+  .route("/:_id")
   .get(getAlbumById)
   .delete(deleteAlbum);
 
