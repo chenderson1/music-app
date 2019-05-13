@@ -7,6 +7,7 @@ import mongoose from "mongoose";
 import expressJwt from "express-jwt";
 import albumRoutes from "./routes/albumRoutes";
 import trackRoutes from "./routes/trackRoutes";
+import deezerRoutes from "./routes/deezerRoutes";
 
 const port = process.env.PORT;
 
@@ -39,6 +40,8 @@ app.use("/api", expressJwt({ secret: process.env.SECRET }));
 //resource routes
 app.use("/api/albums", albumRoutes);
 app.use("/api/tracks", trackRoutes);
+//public routes
+app.use("/deezer", deezerRoutes);
 
 //global error handler
 app.use((err, req, res, next) => {

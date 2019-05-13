@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import LoginForm from "./LoginForm";
 
 export class Nav extends Component {
@@ -7,13 +8,19 @@ export class Nav extends Component {
     const { handleLoginChange, login } = this.props;
     return (
       <div className="nav">
-        <h2>logo</h2>
-        <LoginForm
-          handleChange={handleLoginChange}
-          username={username}
-          password={password}
-          login={login}
-        />
+        <Link to="/">
+          <h2>LOGO</h2>
+        </Link>
+        {this.props.token ? (
+          <button onClick={this.props.logout}>Logout</button>
+        ) : (
+          <LoginForm
+            handleChange={handleLoginChange}
+            username={username}
+            password={password}
+            login={login}
+          />
+        )}
       </div>
     );
   }
