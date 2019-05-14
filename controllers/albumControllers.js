@@ -52,7 +52,7 @@ export const deleteAlbum = async (req, res, next) => {
   try {
     //find and delete album
     const album = await Album.findOneAndRemove({
-      _id: req.params._id,
+      id: req.params.id,
       user: req.user._id
     });
     //find related user and remove album from albums array

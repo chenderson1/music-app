@@ -14,9 +14,10 @@ export const getTracksByUserId = async (req, res, next) => {
 export const getTrackById = async (req, res, next) => {
   try {
     const track = await Track.findOne({
-      _id: req.params._id,
+      _id: req.params.id,
       user: req.user._id
     });
+    console.log(req.params.id, track);
     return res.status(200).send(track);
   } catch (err) {
     res.status(500);
@@ -50,9 +51,10 @@ export const deleteTrack = async (req, res, next) => {
   try {
     //find and delete track
     const track = await Track.findOneAndRemove({
-      _id: req.params._id,
+      id: req.params.id,
       user: req.user._id
     });
+    console.log(track);
     //find related user and remove track from tracks array
     const updatedUser = await User.findOneAndUpdate(
       { _id: req.user._id },

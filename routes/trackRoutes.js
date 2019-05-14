@@ -14,7 +14,7 @@ trackRoutes
   .post(postTrack);
 //get User track by Id
 trackRoutes
-  .route("/:_id")
+  .route("/:id")
   .get(getTrackById)
   .delete(deleteTrack);
 

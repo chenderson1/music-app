@@ -3,7 +3,10 @@ const Schema = mongoose.Schema;
 
 const albumSchema = new Schema({
   title: String,
-  id: Number,
+  id: {
+    type: Number,
+    unique: true
+  },
   cover: String,
   release_date: String,
   duration: Number,

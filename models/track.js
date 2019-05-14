@@ -3,7 +3,10 @@ const Schema = mongoose.Schema;
 
 const trackSchema = new Schema({
   title: String,
-  id: Number,
+  id: {
+    type: Number,
+    unique: true
+  },
   release_date: String,
   duration: Number,
   artist: {
