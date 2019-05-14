@@ -13,7 +13,7 @@ albumRoutes
   .post(postAlbum);
 //get User Album by Id
 albumRoutes
-  .route("/:_id")
+  .route("/:id")
   .get(getAlbumById)
   .delete(deleteAlbum);
 

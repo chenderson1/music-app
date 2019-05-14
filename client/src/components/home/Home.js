@@ -16,11 +16,25 @@ export class Home extends Component {
   }
 
   render() {
-    const { popTracks, popAlbums } = this.props;
+    const {
+      popTracks,
+      popAlbums,
+      postTrack,
+      deleteTrack,
+      postAlbum,
+      deleteAlbum
+    } = this.props;
     return (
       <div>
         <h1>HOME</h1>
-        <PoptracksList popTracks={popTracks} popAlbums={popAlbums} />
+        <PoptracksList
+          deleteTrack={deleteTrack}
+          postTrack={postTrack}
+          postAlbum={postAlbum}
+          deleteAlbum={deleteAlbum}
+          popTracks={popTracks}
+          popAlbums={popAlbums}
+        />
       </div>
     );
   }

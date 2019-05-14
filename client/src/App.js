@@ -1,11 +1,13 @@
 import React from "react";
-import { Switch, Route, Link } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import "./App.css";
 import { withUserData } from "./context/userDataProvider";
 import Nav from "./components/nav/Nav";
 import Landing from "./components/landing/Landing";
 import Footer from "./components/footer/Footer";
 import Home from "./components/home/Home";
+import TrackDetail from "./components/detail/TrackDetail";
+import AlbumDetail from "./components/detail/AlbumDetail";
 
 function App(props) {
   return (
@@ -15,6 +17,14 @@ function App(props) {
       {props.token && (
         <Switch>
           <Route exact path={"/"} render={rProps => <Home {...rProps} />} />
+          <Route
+            path={"/track/:id"}
+            render={rProps => <TrackDetail {...rProps} />}
+          />
+          <Route
+            path={"/album/:id"}
+            render={rProps => <AlbumDetail {...rProps} />}
+          />
           {/* 
         //route to home
           //popular tracks list /
