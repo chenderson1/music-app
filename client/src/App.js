@@ -8,6 +8,7 @@ import Footer from "./components/footer/Footer";
 import Home from "./components/home/Home";
 import TrackDetail from "./components/detail/TrackDetail";
 import AlbumDetail from "./components/detail/AlbumDetail";
+import Search from "./components/search/Search";
 
 function App(props) {
   return (
@@ -25,6 +26,7 @@ function App(props) {
             path={"/album/:id"}
             render={rProps => <AlbumDetail {...rProps} />}
           />
+          <Route path={"/search"} render={rProps => <Search {...rProps} />} />
           {/* 
         //route to home
           //popular tracks list /

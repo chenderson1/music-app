@@ -11,6 +11,10 @@ export class Nav extends Component {
         <Link to="/">
           <h2>LOGO</h2>
         </Link>
+        <Link to="/search">
+          <p>search</p>
+        </Link>
+
         {this.props.token ? (
           <button onClick={this.props.logout}>Logout</button>
         ) : (

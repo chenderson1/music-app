@@ -16,6 +16,7 @@ export class MusicDataProvider extends Component {
     popTracks: [],
     popAlbums: []
   };
+
   getPopTracks = async () => {
     const res = await axios.get("/deezer/popTracks");
     const { tracks, albums } = res.data;
@@ -26,14 +27,17 @@ export class MusicDataProvider extends Component {
     const res = await TrackAxios.post("/api/tracks", track);
     alert(`"${res.data.title}" has been added to your favorites`);
   };
+
   deleteTrack = async track => {
     const res = await TrackAxios.delete(`/api/tracks/${track.id}`);
     alert(`"${res.data.title}"has been removed to your favorites`);
   };
+
   postAlbum = async album => {
     const res = await TrackAxios.post("/api/albums", album);
     alert(`"${res.data.title}" has been added to your favorites`);
   };
+
   deleteAlbum = async album => {
     const res = await TrackAxios.delete(`/api/albums/${album.id}`);
     alert(`"${res.data.title}"has been removed to your favorites`);
