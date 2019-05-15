@@ -14,6 +14,9 @@ export class Nav extends Component {
         <Link to="/search">
           <p>search</p>
         </Link>
+        <Link to="/profile">
+          <p>Profile</p>
+        </Link>
 
         {this.props.token ? (
           <button onClick={this.props.logout}>Logout</button>

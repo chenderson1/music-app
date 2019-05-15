@@ -9,6 +9,7 @@ import Home from "./components/home/Home";
 import TrackDetail from "./components/detail/TrackDetail";
 import AlbumDetail from "./components/detail/AlbumDetail";
 import Search from "./components/search/Search";
+import Profile from "./components/profile/Profile";
 
 function App(props) {
   return (
@@ -27,22 +28,7 @@ function App(props) {
             render={rProps => <AlbumDetail {...rProps} />}
           />
           <Route path={"/search"} render={rProps => <Search {...rProps} />} />
-          {/* 
-        //route to home
-          //popular tracks list /
-          //popular albums list
-          //click to detail
-        //route to Profile
-          // user favorite tracks and albums, user info
-        //track detail track/:_id
-          // click to add to favorites
-        //album detail album/:_id
-          //click  to add to favorites
-        //search
-          //search /search
-          //click to detail
-          //click to add
-        */}
+          <Route path={"/profile"} render={rProps => <Profile {...rProps} />} />
         </Switch>
       )}
       <Footer />
