@@ -14,6 +14,10 @@ const userSchema = new Schema({
     required: true,
     unique: true
   },
+  imgUrl: {
+    type: String,
+    default: "http://wiseheartdesign.com/images/articles/default-avatar.png"
+  },
   password: {
     required: true,
     type: String

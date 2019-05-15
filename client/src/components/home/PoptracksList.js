@@ -26,11 +26,11 @@ const PoptracksList = props => {
   });
   return (
     <div>
-      Pop Tracks:
+      <h2>Popular Tracks</h2>
       {mappedTracks}
       <br />
       <br />
-      PopAlbums:
+      <h2>Popular Albums</h2>
       {mappedAlbums}
     </div>
   );

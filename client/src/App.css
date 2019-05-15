@@ -2,9 +2,9 @@
     margin: 0;
 }
 .app{
-    height: 100vh;
+    height: 100%;
+    padding-bottom: 6vh;
     border: solid black 1px;
-
 }
 .nav{
     display: flex;

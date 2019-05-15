@@ -8,6 +8,7 @@ import expressJwt from "express-jwt";
 import albumRoutes from "./routes/albumRoutes";
 import trackRoutes from "./routes/trackRoutes";
 import deezerRoutes from "./routes/deezerRoutes";
+import userRoutes from "./routes/userRoutes";
 
 const port = process.env.PORT;
 
@@ -40,6 +41,7 @@ app.use("/api", expressJwt({ secret: process.env.SECRET }));
 //resource routes
 app.use("/api/albums", albumRoutes);
 app.use("/api/tracks", trackRoutes);
+app.use("/api/user", userRoutes);
 //public routes
 app.use("/deezer", deezerRoutes);
 
