@@ -24,6 +24,7 @@ export class Home extends Component {
       postAlbum,
       deleteAlbum
     } = this.props;
+
     return (
       <div>
         <h1>HOME</h1>

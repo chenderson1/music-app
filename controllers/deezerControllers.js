@@ -32,4 +32,15 @@ export const getAlbum = async (req, res, next) => {
     next(err);
   }
 };
-export const getSearchTracks = () => {};
+export const getSearchTracks = async (req, res, next) => {
+  try {
+    const results = await axios.get(
+      `https://api.deezer.com/search?q=${req.query.q}`
+    );
+    console.log(results.data);
+    res.send(results.data);
+  } catch (err) {
+    res.status(500);
+    next(err);
+  }
+};
