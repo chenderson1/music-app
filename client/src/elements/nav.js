@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { below } from "../utilities/mediaQueries";
 
 export const MainNav = styled.div`
   background-color: #232a35;
@@ -19,11 +20,22 @@ export const MainNav = styled.div`
     width: 50px;
     margin-left: 1vw;
   }
+  ${below.small`
+  height: 24vh;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+
+  `}
 `;
 
 export const StyledLink = styled(Link)`
   text-decoration: none;
   text-transform: uppercase;
+  ${below.small`
+  margin-bottom: 1vh;
+
+  `}
 `;
 export const StyledTrackLink = styled(StyledLink)`
   color: yellow;
