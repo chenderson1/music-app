@@ -3,6 +3,8 @@ import axios from "axios";
 import Track from "../home/Track";
 import Album from "../home/Album";
 import { withMusicData } from "../../context/musicDataProvider";
+import { StyledHeading2 } from "../../elements/StyledHeading";
+import { StyledList } from "../../elements/styledList";
 
 const FavTrackAxios = axios.create();
 
@@ -73,12 +75,16 @@ export class Profile extends Component {
           <p>{this.state.user.name}</p>
           <p>{this.state.user.email}</p>
         </div>
-        <div>
-          <h2>Fav Tracks</h2>
-          {mappedTracks}
-          <h2>Fav Albums</h2>
-          {mappedAlbums}
-        </div>
+        <StyledList>
+          <div>
+            <StyledHeading2>Fav Tracks</StyledHeading2>
+            {mappedTracks}
+          </div>
+          <div>
+            <StyledHeading2>Fav Albums</StyledHeading2>
+            {mappedAlbums}
+          </div>
+        </StyledList>
       </div>
     );
   }

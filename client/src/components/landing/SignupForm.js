@@ -1,4 +1,5 @@
 import React from "react";
+import { StyledSignUpForm } from "../../elements/form";
 
 const SignUpForm = props => {
   const user = {
@@ -8,7 +9,7 @@ const SignUpForm = props => {
     password: props.password
   };
   return (
-    <form className="signup-form">
+    <StyledSignUpForm>
       <span>Sign Up: </span>
       <input
         type="text"
@@ -39,7 +40,7 @@ const SignUpForm = props => {
         onChange={props.handleChange}
       />
       <button onClick={e => props.signup(e, user)}>Submit</button>
-    </form>
+    </StyledSignUpForm>
   );
 };
 

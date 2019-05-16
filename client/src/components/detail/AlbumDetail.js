@@ -1,6 +1,11 @@
 import React from "react";
 import axios from "axios";
 import { withRouter } from "react-router-dom";
+import Track from "../../components/home/Track";
+import { StyledTrackDetail } from "../../elements/styledTrackDetail";
+import { StyledAlbumInfo } from "../../elements/styledTrackInfo";
+import { StyledTrackList } from "../../elements/styledTrackList";
+import TrackList from "../../components/TrackList";
 
 class AlbumDetail extends React.Component {
   state = {
@@ -21,7 +26,6 @@ class AlbumDetail extends React.Component {
 
   render() {
     const {
-      cover,
       title,
       artist,
       label,
@@ -29,42 +33,56 @@ class AlbumDetail extends React.Component {
       release_date,
       record_type,
       tracks,
-      isLoading
+      cover_xl
     } = this.state.album;
     return (
-      <div>
-        <img src={cover} alt={title} />
-        <h1>
-          title: <br /> {title}
-        </h1>
-        <p>
-          artist: <br />
-          {artist && artist.name}
-        </p>
-        <p>
-          label: <br />
-          {label}
-        </p>
-        <p>
-          duration: <br />
-          {duration}
-        </p>
-        <p>
-          realease: <br />
-          {release_date}
-        </p>
-        <p>
-          record_type: <br />
-          {record_type}
-        </p>
-        <br />
-        {isLoading && (
+      <StyledTrackDetail>
+        <img
+          style={{
+            width: "50%",
+            height: "50vh",
+            objectFit: "fill",
+            borderRadius: "5px",
+            border: "transparent",
+            boxShadow: "1px 1px 20px black"
+          }}
+          src={cover_xl}
+          alt={title}
+        />
+        <StyledAlbumInfo>
+          <h2>{title}</h2>
           <p>
-            tracklist:
-            {tracks && tracks.map(track => <h1>{track.title}</h1>)}
+            <span>artist:</span>
+            {artist && artist.name}
           </p>
-        )}
-      </div>
+          <p>
+            <span>label:</span>
+            {label}
+          </p>
+          <p>
+            <span>duration:</span>
+            {duration}
+          </p>
+          <p>
+            <span>realease:</span>
+            {release_date}
+          </p>
+          <p>
+            <span>Type:</span>
+            {record_type}
+          </p>
+        </StyledAlbumInfo>
+
+        <StyledTrackList>
+          <h2 style={{ color: "white", textTransform: "uppercase" }}>
+            tracklist{" "}
+          </h2>
+          {tracks &&
+            tracks.data.map((track, i) => (
+              <TrackList {...track} key={track.title + i} />
+            ))}
+        </StyledTrackList>
+      </StyledTrackDetail>
     );
   }
 }

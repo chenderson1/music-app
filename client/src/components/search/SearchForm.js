@@ -1,8 +1,9 @@
 import React from "react";
+import { StyledSearchForm } from "../../elements/form";
 
 const SearchForm = props => {
   return (
-    <form>
+    <StyledSearchForm>
       <input
         name="searchText"
         type="text"
@@ -11,7 +12,7 @@ const SearchForm = props => {
         onChange={props.handleChange}
       />
       <button onClick={props.getSearchTracks}>Search</button>
-    </form>
+    </StyledSearchForm>
   );
 };
 

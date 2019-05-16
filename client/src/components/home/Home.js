@@ -26,8 +26,7 @@ export class Home extends Component {
     } = this.props;
 
     return (
-      <div>
-        <h1>HOME</h1>
+      <div style={{ marginBottom: "10vh" }}>
         <PoptracksList
           deleteTrack={deleteTrack}
           postTrack={postTrack}

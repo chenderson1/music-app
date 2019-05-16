@@ -1,25 +1,31 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import LoginForm from "./LoginForm";
+import { MainNav, StyledLink } from "../../elements/nav";
+import { StyledButton } from "../../elements/styledButton";
 
 export class Nav extends Component {
   render() {
     const { username, password } = this.props.loginForm;
     const { handleLoginChange, login } = this.props;
     return (
-      <div className="nav">
-        <Link to="/">
-          <h2>LOGO</h2>
-        </Link>
-        <Link to="/search">
-          <p>search</p>
-        </Link>
-        <Link to="/profile">
-          <p>Profile</p>
-        </Link>
+      <MainNav>
+        <StyledLink to="/">
+          <img src={require("../../resources/record.png")} alt="record" />
+        </StyledLink>
+        {this.props.token && (
+          <>
+            <StyledLink to="/search">
+              <p>search</p>
+            </StyledLink>
+
+            <StyledLink to="/profile">
+              <p>Profile</p>
+            </StyledLink>
+          </>
+        )}
 
         {this.props.token ? (
-          <button onClick={this.props.logout}>Logout</button>
+          <StyledButton onClick={this.props.logout}>Logout</StyledButton>
         ) : (
           <LoginForm
             handleChange={handleLoginChange}
@@ -28,7 +34,7 @@ export class Nav extends Component {
             login={login}
           />
         )}
-      </div>
+      </MainNav>
     );
   }
 }
