@@ -5,6 +5,7 @@ import Album from "../home/Album";
 import { withMusicData } from "../../context/musicDataProvider";
 import { StyledHeading2 } from "../../elements/StyledHeading";
 import { StyledList } from "../../elements/styledList";
+import { StyledProfile } from "../../elements/StyledProfile";
 
 const FavTrackAxios = axios.create();
 
@@ -69,12 +70,14 @@ export class Profile extends Component {
 
     return (
       <div>
-        <h1>Profile</h1>
-        <div>
-          <img src={this.state.user.imgUrl} alt="user" />
-          <p>{this.state.user.name}</p>
-          <p>{this.state.user.email}</p>
-        </div>
+        <StyledProfile>
+          <h1>Profile</h1>
+          <div>
+            <img src={this.state.user.imgUrl} alt="user" />
+            <p>{this.state.user.name}</p>
+            <p>{this.state.user.email}</p>
+          </div>
+        </StyledProfile>
         <StyledList>
           <div>
             <StyledHeading2>Fav Tracks</StyledHeading2>
