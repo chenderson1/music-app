@@ -1,12 +1,15 @@
 import React from "react";
+import { StyledForm } from "../../elements/form";
+import { StyledButton } from "../../elements/styledButton";
 
 const LoginForm = props => {
   const credentials = {
     username: props.username,
     password: props.password
   };
+
   return (
-    <form className="login-form">
+    <StyledForm>
       <span>Login: </span>
       <input
         type="text"
@@ -22,8 +25,10 @@ const LoginForm = props => {
         value={props.password}
         onChange={props.handleChange}
       />
-      <button onClick={e => props.login(e, credentials)}>Submit</button>
-    </form>
+      <StyledButton onClick={e => props.login(e, credentials)}>
+        Submit
+      </StyledButton>
+    </StyledForm>
   );
 };
 

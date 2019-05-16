@@ -1,6 +1,8 @@
 import React from "react";
 import axios from "axios";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
+import { StyledTrackDetail } from "../../elements/styledTrackDetail";
+import { StyledTrackInfo } from "../../elements/styledTrackInfo";
 
 class TrackDetail extends React.Component {
   state = {
@@ -26,29 +28,44 @@ class TrackDetail extends React.Component {
       album
     } = this.state.track;
     return (
-      <div>
-        {album && <img src={album.cover} alt={title} />}
-        <h1>
-          title: <br /> {title}
-        </h1>
-        <p>
-          artist: <br />
-          {artist && artist.name}
-        </p>
-        <p>
-          duration: <br />
-          {duration}
-        </p>
-        <p>
-          realease: <br />
-          {release_date}
-        </p>
-        <p>
-          bpm: <br />
-          {bpm}
-        </p>
-        <section />
-      </div>
+      <StyledTrackDetail>
+        <img
+          style={{
+            width: "50%",
+            height: "50vh",
+            objectFit: "fill",
+            borderRadius: "5px",
+            border: "transparent",
+            boxShadow: "1px 1px 20px black"
+          }}
+          src={album && album.cover_xl}
+          alt={title}
+        />
+        <StyledTrackInfo>
+          <h2>{title}</h2>
+          <p>
+            <span className="label">artist:</span>
+            {artist && artist.name}
+          </p>
+          <p>
+            <span className="label">duration:</span>
+            {duration}
+          </p>
+          <p>
+            <span className="label">realease:</span>
+            {release_date}
+          </p>
+          <p>
+            <span className="label">bpm:</span>
+            {bpm}
+          </p>
+          <Link
+            to={`/album/${this.state.track.album && this.state.track.album.id}`}
+          >
+            <h3>{this.state.track.album && this.state.track.album.title}</h3>
+          </Link>
+        </StyledTrackInfo>
+      </StyledTrackDetail>
     );
   }
 }

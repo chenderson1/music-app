@@ -1,6 +1,8 @@
 import React from "react";
 import Track from "./Track";
 import Album from "./Album";
+import { StyledHeading2 } from "../../elements/StyledHeading";
+import { StyledList } from "../../elements/styledList";
 
 const PoptracksList = props => {
   // console.log(props.popTracks.data);
@@ -25,14 +27,16 @@ const PoptracksList = props => {
     );
   });
   return (
-    <div>
-      <h2>Popular Tracks</h2>
-      {mappedTracks}
-      <br />
-      <br />
-      <h2>Popular Albums</h2>
-      {mappedAlbums}
-    </div>
+    <StyledList>
+      <div>
+        <StyledHeading2>Top Tracks</StyledHeading2>
+        {mappedTracks}
+      </div>
+      <div>
+        <StyledHeading2>Top Albums</StyledHeading2>
+        {mappedAlbums}
+      </div>
+    </StyledList>
   );
 };
 

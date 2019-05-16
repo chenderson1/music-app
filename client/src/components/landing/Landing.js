@@ -5,8 +5,7 @@ export class Landing extends Component {
   render() {
     const { username, name, password, email } = this.props.signupForm;
     return (
-      <div className="landing">
-        Landing
+      <>
         <SignUpForm
           signup={this.props.signup}
           handleChange={this.props.handleSignUpChange}
@@ -15,7 +14,7 @@ export class Landing extends Component {
           password={password}
           email={email}
         />
-      </div>
+      </>
     );
   }
 }

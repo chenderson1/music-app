@@ -3,6 +3,8 @@ import { withMusicData } from "../../context/musicDataProvider";
 import SearchForm from "./SearchForm";
 import axios from "axios";
 import Track from "../home/Track";
+import { StyledHeading2 } from "../../elements/StyledHeading";
+import { StyledSearchList, StyledList } from "../../elements/styledList";
 
 export class Search extends Component {
   state = {
@@ -39,18 +41,24 @@ export class Search extends Component {
     });
 
     return (
-      <>
-        <div>
-          <h1>Search</h1>
-          <SearchForm
-            handleChange={this.handleChange}
-            searchText={this.state.searchText}
-            getTracks={this.getTracks}
-            getSearchTracks={this.getSearchTracks}
-          />
-        </div>
-        <div>{mappedTracks}</div>
-      </>
+      <div
+        style={{
+          display: "flex",
+          flexFlow: "column",
+          justifyContent: "center",
+          justifyItems: "center",
+          alignItems: "center"
+        }}
+      >
+        <StyledHeading2>Search</StyledHeading2>
+        <SearchForm
+          handleChange={this.handleChange}
+          searchText={this.state.searchText}
+          getTracks={this.getTracks}
+          getSearchTracks={this.getSearchTracks}
+        />
+        <StyledSearchList>{mappedTracks}</StyledSearchList>
+      </div>
     );
   }
 }

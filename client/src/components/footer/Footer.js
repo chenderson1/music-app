@@ -1,7 +1,8 @@
 import React from "react";
+import { StyledFooter } from "../../elements/footer";
 
 const Footer = () => {
-  return <div className="footer">Powered by: Deezer Music API</div>;
+  return <StyledFooter>Powered by: Deezer Music API</StyledFooter>;
 };
 
 export default Footer;

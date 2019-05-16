@@ -1,36 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web');
 *{
     margin: 0;
+    font-family: 'Titillium Web', sans-serif;
 }
-.app{
-    height: 100%;
-    padding-bottom: 6vh;
-    border: solid black 1px;
-}
-.nav{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border: solid black 1px;
-    height: 6vh;
-}
-.signup-form{
-
-    border: solid black 1px;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    flex-flow: column;
-}
-.landing{
-    border: solid black 1px;
-    height: 100%;
-}
-.footer{
-    text-align: center;
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    border: solid black 1px;
-    margin-top: 10px;
+body {
+    background-color:#191e26;
 }

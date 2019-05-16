@@ -15,23 +15,28 @@ function App(props) {
   return (
     <div className="app">
       <Nav {...props} />
-      {!props.token && <Landing {...props} />}
-      {props.token && (
-        <Switch>
-          <Route exact path={"/"} render={rProps => <Home {...rProps} />} />
-          <Route
-            path={"/track/:id"}
-            render={rProps => <TrackDetail {...rProps} />}
-          />
-          <Route
-            path={"/album/:id"}
-            render={rProps => <AlbumDetail {...rProps} />}
-          />
-          <Route path={"/search"} render={rProps => <Search {...rProps} />} />
-          <Route path={"/profile"} render={rProps => <Profile {...rProps} />} />
-        </Switch>
-      )}
-      <Footer />
+      <div style={{ height: "100%" }}>
+        {!props.token && <Landing {...props} />}
+        {props.token && (
+          <Switch>
+            <Route exact path={"/"} render={rProps => <Home {...rProps} />} />
+            <Route
+              path={"/track/:id"}
+              render={rProps => <TrackDetail {...rProps} />}
+            />
+            <Route
+              path={"/album/:id"}
+              render={rProps => <AlbumDetail {...rProps} />}
+            />
+            <Route path={"/search"} render={rProps => <Search {...rProps} />} />
+            <Route
+              path={"/profile"}
+              render={rProps => <Profile {...rProps} />}
+            />
+          </Switch>
+        )}
+        <Footer />
+      </div>
     </div>
   );
 }
