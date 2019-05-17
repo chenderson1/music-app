@@ -3,7 +3,7 @@ import { StyledSearchForm } from "../../elements/form";
 
 const SearchForm = props => {
   return (
-    <StyledSearchForm>
+    <StyledSearchForm autocomplete="off">
       <input
         name="searchText"
         type="text"

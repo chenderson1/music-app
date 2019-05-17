@@ -9,7 +9,7 @@ const LoginForm = props => {
   };
 
   return (
-    <StyledForm>
+    <StyledForm autocomplete="off">
       <span>Login: </span>
       <input
         type="text"
@@ -19,7 +19,7 @@ const LoginForm = props => {
         onChange={props.handleChange}
       />
       <input
-        type="text"
+        type="password"
         placeholder="password"
         name="password"
         value={props.password}

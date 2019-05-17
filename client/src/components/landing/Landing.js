@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import SignUpForm from "./SignupForm";
+import Welcome from "./Welcome";
 
 export class Landing extends Component {
   render() {
@@ -14,6 +15,7 @@ export class Landing extends Component {
           password={password}
           email={email}
         />
+        <Welcome />
       </>
     );
   }
